@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A simple Celery demo">
+    <meta name="author" content="voidcounter@gmail.com">
+    <title>Celery Demo</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'img/celery.png' %}">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+        <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+</head>
+
+<body>
+<div class="container-fluid">
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Celery Demo</a>
+    </nav>
+    .
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        {% block content %}
+        {% endblock %}
+    </main>
+</div>
+
+<!-- Pass template url to js, see: https://stackoverflow.com/questions/37311042/call-django-urls-inside-javascript-on-click-event/49824680#49824680-->
+<input type="hidden" id="u_calc" data-url="{% url 'demo:calc' %}"/>
+<input type="hidden" id="u_check" data-url="{% url 'demo:listenToTask' %}"/>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

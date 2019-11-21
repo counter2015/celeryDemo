@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <form method="post" action="{% url 'demo:calc' %}">
+        {% csrf_token %}
+        <label for="single">Input a integer </label>
+        <input type="text" name="number" placeholder="32" id="number">
+        <button id="b01" type="button" onclick="get_result($('#number'))" class="btn  btn-lg btn-danger "
+                style="height:35px;width:100px;font-size:14px">
+            OK
+        </button>
+    </form>
+    <table class="table" style="visibility:hidden" id="table">
+        <thead>
+        <tr>
+            <th>task id</th>
+            <th>event time</th>
+            <th>process time</th>
+            <th>finish time</th>
+            <th>result</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+{% endblock %}
