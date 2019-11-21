@@ -19,7 +19,7 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
 # prepare data dir
 projDir=`git rev-parse --show-toplevel`
-dir_names=($projDir"var/celery")
+dir_names=($projDir"/var/celery")
 for dir_name in ${dir_names[@]}
 do
   if [ ! -d ${dir_name} ]; then
