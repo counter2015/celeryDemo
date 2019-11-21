@@ -4,7 +4,10 @@ pid=`cat ../var/pid`
 kill $pid
 echo stop pid=$pid
 
-celery multi stopwait w1 -A proj -l info \
---pidfile=../var/run/celery/%n.pid \
---logfile=../var/log/celery/%n%I.log
+projDir=`git rev-parse --show-toplevel`
+cd $projDir
+
+celery multi stopwait worker1 -A proj -l info \
+--pidfile=$projDir/var/celery/%n.pid \
+--logfile=$projDir/var/celery/%n%I.log
 

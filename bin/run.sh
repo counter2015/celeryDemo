@@ -12,6 +12,11 @@ nohup python3 "../manage.py" runserver 0:8011 >> ../var/server.log_`date "+%Y-%m
 pid=$!
 echo pid=$pid
 echo $pid > ../var/pid
+
+projDir=`git rev-parse --show-toplevel`
+cd $projDir
+
+
 celery multi start worker1 -A celeryDemo -l info \
---pidfile=../var/run/celery/%n.pid \
---logfile=../var/log/celery/%n%I.log
+--pidfile=$projDir/var/celery/%n.pid \
+--logfile=$projDir/var/celery/%n%I.log

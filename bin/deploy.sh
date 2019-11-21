@@ -18,7 +18,7 @@ RDIR="$( dirname "$SOURCE" )"
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
 # prepare data dir
-dir_names=(${DIR}"/../var")
+dir_names=(${DIR}"/../var/celery")
 for dir_name in ${dir_names[@]}
 do
   if [ ! -d ${dir_name} ]; then
