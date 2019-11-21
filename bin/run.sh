@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
+projDir=`git rev-parse --show-toplevel`
 
-env="../env/bin/activate"
+env="$projDir/env/bin/activate"
 if [ -f ${env} ]; then
   echo "use venv : $env"
-  source ../env/bin/activate
+  source $projDir/env/bin/activate
 else
   echo "venv not found, use local environment"
 fi
 
-nohup python3 "../manage.py" runserver 0:8011 >> ../var/server.log_`date "+%Y-%m-%d"` 2>&1 &
+nohup python3 "$projDir/manage.py" runserver 0:8011 >> $projDir/var/server.log_`date "+%Y-%m-%d"` 2>&1 &
 pid=$!
 echo pid=$pid
-echo $pid > ../var/pid
+echo $pid > $projDir/var/pid
 
-projDir=`git rev-parse --show-toplevel`
+
 cd $projDir
 
 

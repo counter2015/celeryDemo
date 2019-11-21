@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
+projDir=`git rev-parse --show-toplevel`
 
-pid=`cat ../var/pid`
+pid=`cat $projDir/var/pid`
 kill $pid
 echo stop pid=$pid
 
-projDir=`git rev-parse --show-toplevel`
+
 cd $projDir
 
 celery multi stopwait worker1 -A proj -l info \

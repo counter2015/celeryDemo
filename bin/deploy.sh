@@ -18,7 +18,8 @@ RDIR="$( dirname "$SOURCE" )"
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
 # prepare data dir
-dir_names=(${DIR}"/../var/celery")
+projDir=`git rev-parse --show-toplevel`
+dir_names=($projDir"var/celery")
 for dir_name in ${dir_names[@]}
 do
   if [ ! -d ${dir_name} ]; then
@@ -28,13 +29,13 @@ do
 done
 
 # migrate database schema
-env="../env/bin/activate"
+env="$projDir/env/bin/activate"
 if [ -f ${env} ]; then
   echo "use venv : $env"
-  source ../env/bin/activate
+  source $projDir/env/bin/activate
 else
   echo "venv not found, use local environment"
 fi
 
-python "../manage.py" migrate
+python "$projDir/manage.py" migrate
 
