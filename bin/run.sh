@@ -4,7 +4,7 @@ projDir=`git rev-parse --show-toplevel`
 env="$projDir/env/bin/activate"
 if [ -f ${env} ]; then
   echo "use venv : $env"
-  source $projDir/env/bin/activate
+  . $projDir/env/bin/activate
 else
   echo "venv not found, use local environment"
 fi
