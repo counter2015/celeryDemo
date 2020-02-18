@@ -14,9 +14,7 @@ pid=$!
 echo pid=$pid
 echo $pid > $projDir/var/pid
 
-
 cd $projDir
-
 
 celery multi start worker1 -A celeryDemo -l info \
 --pidfile=$projDir/var/celery/%n.pid \

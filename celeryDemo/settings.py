@@ -24,7 +24,8 @@ SECRET_KEY = 'vd(c#8lu@x(r30nz8q%bbcfr+88vgisod_j@n$)ii)#a!5h(2e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# "mycentos" is my local virtual machine host name.
+ALLOWED_HOSTS = ["mycentos", "localhost", "127.0.0.1"]
 
 # Celery settings
 

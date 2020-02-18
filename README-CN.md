@@ -19,7 +19,7 @@ $ git clone https://github.com/counter2015/celeryDemo.git
 # 初始化python虚拟环境，下载依赖包
 $ bin/venv_init.sh
 
-# 创建运行时需要的文件夹，初始化数据库(这里没有用到数据库)
+# 创建运行时需要的文件夹，初始化数据库(这里用的是SQLite)
 $ bin/deploy.sh
 
 # 启动服务，将运行在 http://localhost:8011
@@ -28,4 +28,6 @@ $ bin/run.sh
 # 你可以通过以下命令关闭服务
 $ bin/stop.sh
 ```
+
+相关博客介绍可以参见[此处](https://counter2015.com/2019/11/21/django-redis-celery/)
 

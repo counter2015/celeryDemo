@@ -5,7 +5,6 @@ pid=`cat $projDir/var/pid`
 kill $pid
 echo stop pid=$pid
 
-
 cd $projDir
 
 celery multi stopwait worker1 -A proj -l info \
